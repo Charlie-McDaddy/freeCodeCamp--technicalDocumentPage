@@ -17,33 +17,94 @@ body {
   line-height: 1.5;
 }
 
+/* For mobile phones: */
 .grid-container {
-  display: grid;
-  width: 100%;
-  grid-template-areas:
-    "aside nav"
-    "aside main"
-    "aside footer";
+  display: flex;
+  flex-direction: column;
 
   & > aside {
-    grid-area: aside;
-    background-color: aqua;
+    position: sticky;
+    top: 0;
+    min-height: 10vh;
+    width: 100%;
+    background-color: white;
+  }
+}
+nav#navbar {
+  & > header {
+    font-size: 1.75rem;
   }
 
-  & > nav#top-nav-bar {
-    grid-area: nav;
+  & > ul {
     display: flex;
-    justify-content: left;
-    align-items: center;
-  }
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
 
-  & > main {
-    grid-area: main;
-  }
+    & > li {
+      font-size: 1.25rem;
+      padding: 0 1rem;
 
-  & > footer {
-    grid-area: footer;
-    background-color: burlywood;
+      & > a,
+      & a:visited {
+        text-decoration: none;
+        color: $charcoal;
+      }
+    }
+  }
+}
+
+/* Bigger screens */
+@media only screen and (min-width: 820px) {
+  .grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 290px 2fr;
+    grid-template-areas:
+      "aside nav"
+      "aside main"
+      "aside footer";
+
+    & > aside {
+      grid-area: aside;
+      background-color: $uranian-blue;
+      width: 290px;
+      height: 100%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      overflow-x: hidden;
+    }
+
+    nav#navbar > ul {
+      display: block;
+      list-style: none;
+
+      & > li {
+        padding: 0 1rem;
+
+        & > a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    & > nav#top-nav-bar {
+      grid-area: nav;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+
+    & > main {
+      grid-area: main;
+    }
+
+    & > footer {
+      grid-area: footer;
+      background-color: $medium-champagne;
+    }
   }
 }
 
@@ -62,6 +123,8 @@ body {
     & > li {
       padding: 0.5rem;
       text-align: center;
+      font-size: 1.75rem;
+      color: $charcoal;
     }
   }
 }

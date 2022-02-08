@@ -1,5 +1,75 @@
 @use "variables" as *;
 
-#main-doc {
+#main-doc,
+nav#top-nav-bar {
   padding-left: 1rem;
+}
+
+nav#top-nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $charcoal;
+  color: $medium-champagne;
+
+  & > p {
+    font-size: 2rem;
+  }
+
+  & > h1 {
+    margin-right: 1rem;
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+  }
+}
+
+aside {
+  height: 100%;
+  border-right: solid;
+  border-right-color: $charcoal;
+  padding: 0.5rem;
+}
+
+.main-section {
+  &__code {
+    display: inline-block;
+    border: 1px $artichoke solid;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin: 0.25rem 2rem 0.5rem 1rem;
+    color: $dim-gray;
+  }
+
+  &__paragraph {
+    margin: 0.25rem 0.5rem 0.5rem 1rem;
+    line-height: 1.75;
+    width: 80%;
+  }
+
+  &__article {
+    & > h3 {
+      margin-left: 1rem;
+    }
+    & > h5 {
+      margin: 0.5rem 0.5rem 0rem 1rem;
+    }
+    &--summary {
+      background-color: lightgrey;
+      color: $charcoal;
+      border-radius: 5px;
+
+      & > h4 {
+        margin-left: 1.25rem;
+      }
+      & > ul > li {
+        margin-left: 2.75rem;
+      }
+    }
+  }
+}
+
+hr {
+  border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
 }
